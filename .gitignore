@@ -1,0 +1,17 @@
+*
+!*.*
+!*/
+
+# Except keep specific project files
+!.gitignore
+!*.c
+!*.h
+!Makefile
+!README*
+
+# Ignore standard C build outputs
+*.o
+*.out
+*.exe
+*.obj
+*.gch
