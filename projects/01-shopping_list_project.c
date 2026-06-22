@@ -17,6 +17,7 @@ int main(){
 
     printf("How many would you like?: ");
     scanf("%d", &quantity);
+    getchar();
 
 
     printf("\n\n You have bought %d %s/s", quantity, item_name);
