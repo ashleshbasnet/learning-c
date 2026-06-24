@@ -45,10 +45,11 @@ int main(){
     char charOfTheWeek = '\0';
 
     printf("\nEnter a day of the week (M, T, W, R, F, S, U): ");
-    scanf("%c", &charOfTheWeek);
     getchar();
+    scanf("%c", &charOfTheWeek);
+    
 
-    switch(dayOfWeek){
+    switch(charOfTheWeek){
         case 'M': 
             printf("Monday");
             break; 
