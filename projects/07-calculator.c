@@ -35,8 +35,8 @@ int main(){
             }
             else{
                 result = num1/num2;
-                break;
             }
+            break;
         default:
             printf("Enter a valid operator!\n");
 
