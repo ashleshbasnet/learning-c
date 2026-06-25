@@ -20,17 +20,6 @@ int main(){
         scanf(" %d",&number);
     }while(number<=0); //Post conditional while loop
 
-    number = -1;
-    while(number<=0){
-        printf("Enter a number less than 1: ");
-        scanf("%d", &number);
-        if(number==-1){
-            break;
-        }
-        else if(number ==0){
-            continue;
-        }
-    }
 
     bool isRunning = true;
     char response = '\0';
@@ -41,7 +30,7 @@ int main(){
         scanf(" %c", &response);
 
         if (response !='Y' && response !='y'){
-            break; //You may also set isRunning to false, do note that break exists INSTANTLY
+            isRunning=false; //You may also set isRunning to false, do note that break exists INSTANTLY
             //       If you have stuff below this then DON'T USE BREAK!!!!!
         }
     }
