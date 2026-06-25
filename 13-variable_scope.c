@@ -1,6 +1,12 @@
 #include <stdio.h>
  
+
+int globalvar = 0; // GLOBAL SCOPE, IT CAN BE USED IN ANY FUNCTION!!!!! (hard to debug)
+
+
 int add(int x, int y){
+    int globalvar = 5;
+    printf("%d", globalvar); //CALLED SHADOWING! Local SCOPE always takes priority!!
     int result = x + y;
     return result;
 }
