@@ -1,55 +1,80 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 
-
-int randomNumberGenerator(int min, int max);
-bool guessingGame(int guess, int generated);
+int getComputerChoice();
+int getUserChoice();
+void checkWinner(int userChoice, int computerChoice);
 
 int main(){
-
     srand(time(NULL));
 
-    int num1 = 0;
-    int num2 = 0;
-    int guessed = 0;
+    printf("ROCK PAPER SCISSOR!!");
 
-    printf("WELCOME TO THE NUMBER GUESSING GAME!!!\n");
-    printf("Enter the minimum number boundary: ");
-    scanf("%d", &num1);
-    printf("Enter the maximum number boundary: ");
-    scanf("%d", &num2);
+    int userChoice = getUserChoice();
+    int computerChoice = getComputerChoice();
 
-    bool hasWon=false;
-    int c = 10;
-    int numberGenerated = randomNumberGenerator(num1, num2);
-    do{
-        printf("Enter your guess Number! \nTries Remaining: %d\n", c);
-        printf("Guess Number: ");
-        scanf("%d", &guessed);
-        hasWon = guessingGame(guessed, numberGenerated);
-        c--;
-    } while(!hasWon && c!=0);
-    if(hasWon){
-        printf("You have guessed correctly! Congratulations!!");
+    switch(userChoice){
+        case 1:
+            printf("You chose ROCK!\n");
+            break;
+        case 2:
+            printf("You chose PAPER!\n");
+            break;
+        case 3:
+            printf("You chose SCISSORS!\n");
+            break;
     }
 
+    switch(computerChoice){
+        case 1:
+            printf("The Computer chose ROCK!\n");
+            break;
+        case 2:
+            printf("The Computer chose PAPER!\n");
+            break;
+        case 3:
+            printf("The Computer chose SCISSORS!\n");
+            break;
+    }
+
+    checkWinner(userChoice, computerChoice);
 
     return 0;
 }
 
-int randomNumberGenerator(int min, int max){
-    
-    int randomNumber= (rand()%(max-min+1))+min;
-    return randomNumber;
+
+int getComputerChoice(){
+
+    return (rand()%3)+1;
 }
 
-bool guessingGame(int guess, int generated){
-    if(guess==generated){
-        return true;
+int getUserChoice(){
+
+    int choice = 0;
+
+    do{
+        printf("Choose an option\n");
+        printf("1. ROCK\n2. PAPER\n3. SCISSORS\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+    }while(choice < 1 || choice >3);
+    return choice;
+}
+
+void checkWinner(int userChoice, int computerChoice){
+    if(userChoice == computerChoice){
+        printf("It's a TIE!");
+    }
+    else if((userChoice == 1 && computerChoice == 3) || 
+            (userChoice == 2 && computerChoice == 1) || 
+            (userChoice == 3 && computerChoice == 2))
+    {
+        printf("You WIN!");
     }
     else{
-        return false;
+        printf("You LOSE!");
     }
+
 }
